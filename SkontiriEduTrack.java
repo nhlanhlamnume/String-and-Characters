@@ -1,4 +1,11 @@
-
+public static void populateUsers(int[] users)
+    {
+        Random rand = new Random();
+        for (int i = 0; i < users.length; i++)
+        {
+            users[i] = rand.nextInt((500000 - 100000) + 1) + 100000;
+        }
+    }
 public static void main(String[] args)
     {
         String[] platform        = {"Coursera", "Udemy", "UnisaOnline", "Skillshare", "MindTheGap", "GetSmarter"};
