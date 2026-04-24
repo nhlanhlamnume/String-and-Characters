@@ -1,10 +1,38 @@
 import java.util.Scanner;
 import java.util.Random;
 public class StreamingServicesApplication {
+    public static void sortServiceProvider (String[] serviceProviders, String[] originCountry, int[] subscribers, int[] userRatings)
+    {
+        for(int i = 0; i < serviceProviders.length - 1; i++)
+        {
+            for(int a = 0; serviceProviders.length - i - 1; i++)
+            {
+                if(serviceProviders[a].compareTo([serviceProviders[a +1]]) > 0)
+                {
+                    String tempService = serviceProviders[a];
+                    serviceProviders[a] = serviceProviders[a + 1];
+                    serviceProviders[a + 1] = tempService;
+
+                    String tempCountry = originCountry[a];
+                    originCountry[a] = originCountry[a + 1];
+                    originCountry[a +1] = tempCountry;
+
+                    int tempSubs = subscribers[a];
+                    subscribers[a] = subscribers[a + 1];
+                    subscribers[a + 1] = tempSubs;
+
+                    int tempRatings = userRatings[a];
+                    userRatings[a] = userRatings[a + 1];
+                    userRatings[a + 1] = tempRatings;
+                }
+            }
+        }
+    }
     public static int mostWatchedService (int[] subscribers)
     {   
         int index = 0;
         int highestUsed = subscribers[0];
+
         for(int i = 0; i < subscribers.length; i++)
         {
             if(subscribers[i] > highestUsed)
@@ -50,5 +78,9 @@ public class StreamingServicesApplication {
 
         populateSubscribers(subscribers);
         populateRatings(userRatings,serviceProviders);
+
+        int mostWatched = mostWatchedService (subscribers);
+        System.out.println("Most watched service providers " + serviceProviders[mostWatched] + " " + subscribers[mostWatched] + " subscribers");
+
     }
 }
