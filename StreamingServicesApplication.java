@@ -1,6 +1,21 @@
 import java.util.Scanner;
 import java.util.Random;
 public class StreamingServicesApplication {
+    public static int mostWatchedService (int[] subscribers)
+    {   
+        int index = 0;
+        int highestUsed = subscribers[0];
+        for(int i = 0; i < subscribers.length; i++)
+        {
+            if(subscribers[i] > highestUsed)
+            {
+                highestUsed = subscribers[i];
+                index = i;
+            }
+        }
+        return index;
+    }
+
     public static void populateRatings(int[] userRatings, String[] serviceProviders)
     {
         Scanner kb = new Scanner(System.in);
@@ -8,7 +23,7 @@ public class StreamingServicesApplication {
         {
                 System.out.print("Enter user ratings(1-5) for " + serviceProviders[i] + ": ");
                 userRatings[i] = kb.nextInt();
-                while(userRatings[i] > 1 || userRatings[i] < 5)
+                while(userRatings[i] < 1 || userRatings[i] > 5)
                 {
                     System.out.print("Invalid input, enter a number from 1 to 5 for " + serviceProviders[i] + ": ");
                     userRatings[i] = kb.nextInt();
