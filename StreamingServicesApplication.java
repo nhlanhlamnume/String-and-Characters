@@ -1,6 +1,15 @@
 import java.util.Scanner;
 import java.util.Random;
 public class StreamingServicesApplication {
+    public static void displayStreamingServices(String[] serviceProviders, String[] originCountry, int[] subscribers, int[] userRatings)
+    {
+        System.out.println("=========================================================================");
+        for(int i = 0; i < serviceProviders.length; i++)
+        {
+            System.out.println("Service Providers\tCountry\tSubscribers\tUser Ratings");
+            System.out.println(serviceProviders[i] + "\t" + originCountry[i] + "\t" + subscribers[i] + "\t" + userRatings[i]);
+        }
+    }
     public static void sortServiceProvider (String[] serviceProviders, String[] originCountry, int[] subscribers, int[] userRatings)
     {
         for(int i = 0; i < serviceProviders.length - 1; i++)
@@ -82,5 +91,7 @@ public class StreamingServicesApplication {
         int mostWatched = mostWatchedService (subscribers);
         System.out.println("Most watched service providers " + serviceProviders[mostWatched] + " " + subscribers[mostWatched] + " subscribers");
 
+        sortServiceProvider(serviceProviders,originCountry,subscribers,userRatings);
+        displayStreamingServices(serviceProviders,originCountry,subscribers,userRatings);
     }
 }
