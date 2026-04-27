@@ -1,4 +1,16 @@
-  public static int searchP(String[] serviceProviders, String searchProvider)
+import java.util.Scanner;
+import java.util.Random;
+public class StreamingServiceApplication2{
+    public static void displayStreamingServices(String[] serviceProviders, String[] originCountry, int[] subscribers, int[] userRatings)
+    {
+        System.out.println("========================================================================");
+        System.out.println("Service Providers\t\tOrigin Country\t\tSubscriber\tUser Ratings");
+        for(int i = 0; i < serviceProviders.length; i++)
+        {
+            System.out.println(serviceProviders[i] + "\t\t\t\t\t" + originCountry[i] + "\t\t\t\t\t" + subscribers[i] + "\t\t" + userRatings[i]);
+        }
+    }
+public static int searchP(String[] serviceProviders, String searchProvider)
     {
         for(int i = 0; i < serviceProviders.length; i++)
         {
