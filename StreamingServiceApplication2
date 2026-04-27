@@ -14,3 +14,18 @@ public static void main(String[] args)
         System.out.println("Most watched service provider is " + serviceProviders[mostWatched] + " with " + subscribers[mostWatched] + " subscribers.");
         
         sortServiceProvider(serviceProviders,originCountry,subscribers,userRatings);
+
+        System.out.print("Enter to search a service provider: ");
+        String searchProvider = kb.nextLine();
+        
+        int results = searchP(serviceProviders,searchProvider);
+        
+        if(results != -1){
+            System.out.println(serviceProviders[results] + " was found!");
+        }else{
+            System.out.println(searchProvider + " was not found!");
+        }
+        
+        displayStreamingServices(serviceProviders,originCountry,subscribers,userRatings);
+    }
+}
